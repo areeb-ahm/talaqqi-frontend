@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Teachers</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="admDashboard.html">Dashboard</a>
+            <div class="status">Credential Verification</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <h2>Pending Applications</h2>
+            <p style="color: #6B7280; margin-bottom: 20px;">Review documents and approve qualified teachers.</p>
+
+            <div class="list-wrapper">
+                <div class="card-item">
+                    <div class="details">
+                        <h3>Sheikh Omar</h3>
+                        <p>Qualification: Ijazah in Hafs from Al-Azhar</p>
+                        <a href="#" class="link-text">View Uploaded Certificate</a>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-approve">Approve</button>
+                        <button class="btn-reject">Reject</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="details">
+                        <h3>Hafiz Bilal</h3>
+                        <p>Qualification: Qari Course - 5 Years Experience</p>
+                        <a href="#" class="link-text">View Uploaded Certificate</a>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-approve">Approve</button>
+                        <button class="btn-reject">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                e.preventDefault();
+            }
+        });
+
+        // --- 2. Approve Logic ---
+        const approveButtons = document.querySelectorAll('.btn-approve');
+
+        approveButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (confirm("Confirm Approval? This teacher will be granted full access.")) {
+                    // Remove the card
+                    const card = btn.closest('.card-item');
+                    card.remove();
+                    
+                    alert("Success: Teacher application approved and account activated.");
+                }
+            });
+        });
+
+        // --- 3. Reject Logic ---
+        const rejectButtons = document.querySelectorAll('.btn-reject');
+
+        rejectButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (confirm("Are you sure you want to REJECT this application?")) {
+                    // Remove the card
+                    const card = btn.closest('.card-item');
+                    card.remove();
+                    
+                    alert("Application rejected. Notification sent to applicant.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

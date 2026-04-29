@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Class</title>
+    <link rel="stylesheet" href="teacher.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="tchDashboard.html">Dashboard</a>
+            <div class="status">New Session</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container form-container">
+            <h2>Schedule a Class</h2>
+            
+            <div class="formCon">
+                <form id="scheduleForm">
+                    <div class="input-group">
+                        <label>Class Title / Topic</label>
+                        <input type="text" name="topic" placeholder="e.g. Surah Al-Baqarah Recitation" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Select Student</label>
+                        <select name="student" required>
+                            <option value="">-- Choose Student --</option>
+                            <option value="std1">Ahmed Ali (ID: 2025-001)</option>
+                            <option value="std2">Fatima Noor (ID: 2025-002)</option>
+                            <option value="std3">Group Class (Open)</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group half">
+                            <label>Date</label>
+                            <input type="date" name="date" id="dateInput" required>
+                        </div>
+                        <div class="input-group half">
+                            <label>Time</label>
+                            <input type="time" name="time" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Session Notes (Optional)</label>
+                        <textarea placeholder="Instructions for the student..."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="actionBtn">
+                <button type="submit" form="scheduleForm">Confirm Schedule</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                e.preventDefault();
+            }
+        });
+
+        // --- 2. Schedule Form Logic ---
+        const form = document.getElementById('scheduleForm');
+        const dateInput = document.getElementById('dateInput');
+
+        // Prevent selecting past dates
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop page reload
+
+            // Get values for the confirmation message
+            const topic = form.querySelector('input[name="topic"]').value;
+            const date = form.querySelector('input[name="date"]').value;
+            const time = form.querySelector('input[name="time"]').value;
+
+            // Show success message
+            alert("Success! Class scheduled: '" + topic + "' on " + date + " at " + time);
+
+            // Redirect back to Teacher Dashboard
+            window.location.href = "tchDashboard.html";
+        });
+    </script>
+</body>
+
+</html>

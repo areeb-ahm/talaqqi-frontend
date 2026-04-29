@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0D1117;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header (Identical to previous) --- */
+.header {
+    background-color: #161B22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+    position: sticky;
+    top: 0;
+}
+
+.header h1 {
+    color: #10B981;
+}
+
+.header .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: #E5E7EB;
+}
+
+.header .nav a:hover {
+    color: #10B981;
+}
+
+.header .nav .status {
+    color: #3B82F6;
+    font-weight: 600;
+    border-left: 2px solid #30363D;
+    padding-left: 20px;
+}
+
+/* --- Main Layout --- */
+.main {
+    background-color: #0D1117;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* --- Recorder Container --- */
+.recorder-container {
+    width: 80%;
+    background-color: #1F2937;
+    border: 10px solid #2A2F36;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.recorder-container h2 {
+    color: #3B82F6;
+    margin-bottom: 20px;
+}
+
+.mic-visualizer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.mic-visualizer .wave {
+    width: 10px;
+    height: 40px;
+    background-color: #10B981;
+    border-radius: 5px;
+    /* Static animation placeholder */
+    height: 20px; 
+}
+
+/* Simulating wave heights */
+.mic-visualizer .wave:nth-child(2) { height: 40px; }
+.mic-visualizer .wave:nth-child(3) { height: 50px; }
+.mic-visualizer .wave:nth-child(4) { height: 30px; }
+
+.controls {
+    display: flex;
+    gap: 20px;
+}
+
+.controls button {
+    text-decoration: none;
+    color: #E5E7EB;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 3px solid #30363D;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.controls .record-btn {
+    background-color: #EF4444; /* Red for Record */
+}
+
+.controls .stop-btn {
+    background-color: #3B82F6; /* Blue for Stop/Analyze */
+}
+
+.controls .play-btn {
+    background-color: #10B981; /* Green for Play */
+}
+
+.controls button:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* --- Verse Display --- */
+.verse-display {
+    width: 80%;
+    background-color: #1F2937;
+    border: 10px solid #2A2F36;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+}
+
+.verse-display h3 {
+    color: #A1A1AA;
+    margin-bottom: 20px;
+}
+
+.verse-display .quran-text {
+    font-size: 36px;
+    color: #E5E7EB;
+    line-height: 2;
+}
+
+.verse-display .mistake {
+    color: #EF4444;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+.legend {
+    margin-top: 20px;
+    color: #A1A1AA;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.legend .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.legend .dot.red { background-color: #EF4444; }
+.legend .dot.green { background-color: #10B981; }
+
+/* --- Analysis Result (Split View) --- */
+.analysis-result {
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    /* Flex wrap ensures responsiveness if screen is small */
+    flex-wrap: wrap; 
+}
+
+/* Score Card */
+.score-card {
+    flex: 1;
+    background-color: #1F2937;
+    border: 10px solid #2A2F36;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+}
+
+.score-card h3 {
+    color: #3B82F6;
+    margin-bottom: 20px;
+}
+
+.score-card .score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 8px solid #10B981;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #E5E7EB;
+    background-color: #161B22;
+}
+
+/* Feedback Panel */
+.feedback-panel {
+    flex: 2;
+    background-color: #1F2937;
+    border: 10px solid #2A2F36;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.feedback-panel h3 {
+    color: #3B82F6;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #30363D;
+    padding-bottom: 10px;
+}
+
+.feedback-item {
+    background-color: #161B22;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #30363D;
+}
+
+.feedback-item h4 {
+    color: #EF4444; /* Highlight the error title */
+    margin-bottom: 5px;
+}
+
+.feedback-item p {
+    color: #E5E7EB;
+    font-size: 14px;
+}
+
+/* --- Footer --- */
+.footer {
+    color: #10B981;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #161B22;
+    height: 50px;
+    margin-top: auto;
+}

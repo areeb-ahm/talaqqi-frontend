@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="admDashboard.html">Homepage</a>
+        </div>
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        
+        <div class="dashboard">
+            <h3>Admin Dashboard</h3>
+            <div class="dashCon">
+                <a href="verifyTeachers.html">Verify Teacher Credentials</a>
+                <a href="manageUsers.html">Manage Users</a>
+                <a href="systemReports.html">System Reports</a>
+                <a href="recitation.html">Upload / Record Recitation</a>
+                <a href="aiFeedback.html">AI Feedback Area</a>
+                <a href="recommendations.html">Recommendations</a>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <h2>Overview</h2>
+            <div class="overview-grid">
+                
+                <div class="overview-card">
+                    <h3>Pending Approvals</h3>
+                    <div class="number" style="color: #EF4444;">3</div>
+                    <p class="desc">Teachers waiting for verification.</p>
+                    <a href="verifyTeachers.html" class="btn-small">Review</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Total Users</h3>
+                    <div class="number">1,250</div>
+                    <p class="desc">Students and Teachers registered.</p>
+                    <a href="manageUsers.html" class="btn-small">Manage</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>System Health</h3>
+                    <div class="number" style="color: #10B981; font-size: 24px;">Operational</div>
+                    <p class="desc">Server load is normal.</p>
+                    <a href="systemReports.html" class="btn-small">View Report</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) e.preventDefault();
+        });
+    </script>
+</body>
+</html>

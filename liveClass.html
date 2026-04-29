@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Class</title>
+    <link rel="stylesheet" href="liveClass.css">
+    
+    <style>
+        .active-tool {
+            background-color: #10B981 !important; /* Force green background */
+            color: #0D1117 !important;           /* Dark text */
+            border-color: #10B981 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="stdDashboard.html">Dashboard</a>
+            <div class="status">Live Session: Surah Al-Fatiha</div>
+        </div>
+
+        <div class="leaveClass">
+            <a href="stdDashboard.html" id="leaveLink">Leave Class</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="mushaf-container">
+            <div class="mushaf-header">
+                <h2>Page 1</h2>
+                <div class="tools">
+                    <button class="tool-btn">Pen</button>
+                    <button class="tool-btn">Highlight</button>
+                    <button class="tool-btn">Eraser</button>
+                </div>
+            </div>
+            
+            <div class="mushaf-page">
+                <p class="verse">
+                    بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+                </p>
+                <p class="verse">
+                    ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ
+                </p>
+                <p class="verse highlight">
+                    ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+                </p>
+                <p class="verse">
+                    مَـٰلِكِ يَوْمِ ٱلدِّينِ
+                </p>
+                
+                <div class="annotation-box">Correction: Elongate 2 counts</div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="video-container">
+                <div class="video-feed teacher">
+                    <span>Teacher Cam</span>
+                    <div class="mic-icon">🎤</div>
+                </div>
+                <div class="video-feed student">
+                    <span>My Cam</span>
+                    <div class="mic-icon">🎤</div>
+                </div>
+            </div>
+
+            <div class="notes-panel">
+                <h3>Class Notes</h3>
+                <textarea id="noteInput" placeholder="Type your notes here..."></textarea>
+                <div class="saveBtn">
+                    <button id="saveNoteBtn">Save Note</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Leave Class Confirmation ---
+        const leaveLink = document.getElementById('leaveLink');
+
+        leaveLink.addEventListener('click', function(event) {
+            const confirmLeave = confirm("Are you sure you want to leave the live class?");
+            if (!confirmLeave) {
+                // If they say Cancel, stop the link from working
+                event.preventDefault();
+            }
+        });
+
+
+        // --- 2. Tool Selection Logic ---
+        // Select all buttons with the class 'tool-btn'
+        const tools = document.querySelectorAll('.tool-btn');
+
+        tools.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                // Step A: Remove 'active-tool' class from ALL buttons (reset)
+                tools.forEach(function(t) {
+                    t.classList.remove('active-tool');
+                });
+
+                // Step B: Add 'active-tool' class ONLY to the clicked button
+                // 'this' refers to the button that was just clicked
+                this.classList.add('active-tool');
+                
+                // Optional: Show a message for testing
+                // alert("Tool selected: " + this.innerText);
+            });
+        });
+
+
+        // --- 3. Save Note Logic ---
+        const saveBtn = document.getElementById('saveNoteBtn');
+        const noteArea = document.getElementById('noteInput');
+
+        saveBtn.addEventListener('click', function() {
+            // Get the text inside the textarea
+            const noteContent = noteArea.value;
+
+            // Check if it is empty
+            if (noteContent === "") {
+                alert("Please type a note before saving.");
+            } else {
+                alert("Note saved successfully to your notebook!");
+                // Clear the box after saving
+                noteArea.value = "";
+            }
+        });
+    </script>
+</body>
+
+</html>

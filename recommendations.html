@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="schedule.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="stdDashboard.html">Dashboard</a>
+            <div class="status">Personalized Practice</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <h2>Focus Areas for You</h2>
+            <p style="color: #A1A1AA; margin-bottom: 20px;">Based on your recent recitations, AI recommends focusing on these rules.</p>
+            
+            <div class="schedule-list">
+                <div class="class-card recommendation">
+                    <div class="icon-box">
+                        ⚠️
+                    </div>
+                    <div class="details">
+                        <h3>Rule: Qalqalah (Echoing Sound)</h3>
+                        <p>We noticed inconsistency in your Qalqalah letters (ق ط ب ج د).</p>
+                    </div>
+                    <div class="action">
+                        <a href="#" class="practice-btn">Practice Now</a>
+                    </div>
+                </div>
+
+                <div class="class-card recommendation">
+                    <div class="icon-box">
+                        ⚠️
+                    </div>
+                    <div class="details">
+                        <h3>Rule: Heavy Letters (Tafkheem)</h3>
+                        <p>The letter 'Saad' (ص) needs more elevation.</p>
+                    </div>
+                    <div class="action">
+                        <a href="#" class="practice-btn">Practice Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                e.preventDefault();
+            }
+        });
+
+        // --- 2. Smart Practice Button Logic ---
+        
+        // Select all practice buttons
+        const practiceBtns = document.querySelectorAll('.practice-btn');
+
+        practiceBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(event) {
+                // Stop the link from jumping immediately
+                event.preventDefault();
+
+                // Advanced Tip: Use .closest() to find the card this button lives in
+                const card = btn.closest('.class-card');
+                
+                // Now find the H3 title INSIDE that specific card
+                const ruleName = card.querySelector('h3').innerText;
+
+                // Show a dynamic message using that text
+                alert("Initiating practice session for: " + ruleName);
+
+                // Redirect to the recording page to "start" practicing
+                window.location.href = "recitation.html";
+            });
+        });
+    </script>
+</body>
+
+</html>

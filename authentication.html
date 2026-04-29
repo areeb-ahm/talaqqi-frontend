@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="authentication.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="homePage.html">Homepage</a>
+            <a href="authentication.html">Authentication</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="card">
+            <h2>Log In</h2>
+            <div class="formCon">
+                <form id="loginForm">
+                    <input type="text" name="username" placeholder="Enter username" required>
+                    <input type="password" name="password" placeholder="Enter password" required>
+                </form>
+            </div>
+            
+            <div class="fPass">
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <div class="loginBtn">
+                <button type="submit" form="loginForm">Log In</button>
+            </div>
+
+            <div class="reg">
+                <h4>Don't have an account?</h4>
+                <div class="regBtn">
+                    <a href="regForm.html">Register</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; text-align: center; font-size: 12px; color: #6B7280;">
+                <p>--- Demo Navigation ---</p>
+                <a href="tchDashboard.html" style="color: #3B82F6; text-decoration: none; margin: 0 10px;">Teacher View</a>
+                <a href="admDashboard.html" style="color: #3B82F6; text-decoration: none; margin: 0 10px;">Admin View</a>
+                <a href="stdDashboard.html" style="color: #3B82F6; text-decoration: none; margin: 0 10px;">Student View</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // 1. Select the form
+        const loginForm = document.getElementById('loginForm');
+
+        // 2. Listen for the 'submit' event (when user clicks Log In)
+        loginForm.addEventListener('submit', function(event) {
+            
+            // 3. Stop the form from submitting normally (prevent page reload)
+            event.preventDefault();
+
+            // 4. Get the value inside the username input
+            // querySelector finds the input with name="username"
+            const usernameInput = document.querySelector('input[name="username"]');
+            const username = usernameInput.value.toLowerCase(); // Convert to lowercase for easy checking
+
+            // 5. Logic to decide which page to go to
+            let destination = 'stdDashboard.html'; // Default is Student
+
+            if (username.includes('admin')) {
+                destination = 'admDashboard.html';
+                alert("Welcome, Admin! Redirecting to Dashboard...");
+            } 
+            else if (username.includes('teacher')) {
+                destination = 'tchDashboard.html';
+                alert("Welcome, Teacher! Redirecting to Dashboard...");
+            } 
+            else {
+                alert("Login Successful! Redirecting to Student Dashboard...");
+            }
+
+            // 6. Actually go to the page
+            window.location.href = destination;
+        });
+    </script>
+</body>
+
+</html>

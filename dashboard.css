@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0D1117;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #161B22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header h1 { color: #10B981; }
+
+.header .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header .nav a { text-decoration: none; color: #E5E7EB; }
+.header .nav a:hover { color: #10B981; }
+
+.header .signOut a {
+    text-decoration: none;
+    color: #E5E7EB;
+    background-color: #3B82F6;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+    border: 3px solid #30363D;
+}
+.header .signOut a:hover { background-color: #EF4444; }
+
+/* --- NEW: Layout Wrapper (Sidebar + Content) --- */
+.main-layout {
+    display: flex;
+    flex: 1; /* Fills remaining height */
+}
+
+/* Sidebar Styles */
+.dashboard {
+    width: 250px; /* Increased slightly for better text fit */
+    background-color: #161B22;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #30363D;
+}
+
+.dashboard h3 {
+    margin: 20px 15px 10px 15px;
+    padding-bottom: 10px;
+    color: #3B82F6;
+    border-bottom: 2px solid #30363D;
+}
+
+.dashboard .dashCon {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard .dashCon a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #E5E7EB;
+    transition: background-color 0.2s;
+}
+
+.dashboard .dashCon a:hover {
+    color: #10B981;
+    background-color: #0D1117;
+}
+
+/* --- NEW: Content Area Styles --- */
+.content-area {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.content-area h2 {
+    color: #E5E7EB;
+    margin-bottom: 20px;
+}
+
+.overview-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.overview-card {
+    background-color: #1F2937;
+    border: 10px solid #2A2F36;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.overview-card h3 {
+    color: #3B82F6;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.overview-card .number {
+    font-size: 36px;
+    font-weight: 700;
+    color: #E5E7EB;
+    margin-bottom: 10px;
+}
+
+.overview-card .desc {
+    color: #A1A1AA;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.overview-card .btn-small {
+    background-color: #10B981;
+    color: #064E3B;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.overview-card .btn-small:hover {
+    background-color: #34D399;
+}
+
+.footer {
+    color: #10B981;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #161B22;
+    height: 50px;
+    margin-top: auto;
+}

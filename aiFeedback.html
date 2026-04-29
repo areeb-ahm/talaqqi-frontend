@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Feedback History</title>
+    <link rel="stylesheet" href="schedule.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="stdDashboard.html">Dashboard</a>
+            <div class="status">Performance History</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <h2>Recitation History</h2>
+            
+            <div class="schedule-list">
+                <div class="class-card">
+                    <div class="score-box high">92%</div>
+                    <div class="details">
+                        <h3>Surah Al-Ikhlas</h3>
+                        <p>Date: Nov 24, 2025 | Mistakes: 1</p>
+                    </div>
+                    <div class="action">
+                        <a href="recitation.html" class="view-btn">View Report</a>
+                    </div>
+                </div>
+
+                <div class="class-card">
+                    <div class="score-box medium">78%</div>
+                    <div class="details">
+                        <h3>Surah Al-Falaq</h3>
+                        <p>Date: Nov 22, 2025 | Mistakes: 4</p>
+                    </div>
+                    <div class="action">
+                        <a href="recitation.html" class="view-btn">View Report</a>
+                    </div>
+                </div>
+
+                 <div class="class-card">
+                    <div class="score-box low">65%</div>
+                    <div class="details">
+                        <h3>Surah An-Nas</h3>
+                        <p>Date: Nov 20, 2025 | Mistakes: 7</p>
+                    </div>
+                    <div class="action">
+                        <a href="recitation.html" class="view-btn">View Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation (Same as before) ---
+        const signOutBtn = document.getElementById('signOutLink');
+        
+        signOutBtn.addEventListener('click', function(event) {
+            const confirmAction = confirm("Are you sure you want to sign out?");
+            if (!confirmAction) {
+                event.preventDefault();
+            }
+        });
+
+        // --- 2. View Report "Loading" Message ---
+        
+        // selectAll() finds ALL elements with the class 'view-btn'
+        const reportButtons = document.querySelectorAll('.view-btn');
+
+        // We need to loop through the list because there is more than one button
+        reportButtons.forEach(function(button) {
+            
+            button.addEventListener('click', function() {
+                // When clicked, show a simple alert before the page changes
+                alert("Retrieving AI Analysis Report... Please wait.");
+                
+                // After the user clicks "OK" on the alert, the browser 
+                // automatically follows the href link to recitation.html
+            });
+            
+        });
+    </script>
+</body>
+
+</html>

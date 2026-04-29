@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="tchDashboard.html">Homepage</a>
+        </div>
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        
+        <div class="dashboard">
+            <h3 id="welcomeHeader">Teacher Dashboard</h3>
+            <div class="dashCon">
+                <a href="scheduleClass.html">Schedule Class</a>
+                <a href="liveClass.html" id="enterClassBtn">Enter Class / Annotate</a>
+                <a href="studentProgress.html">View Student Progress</a>
+                <a href="profile.html">Teacher Profile</a>
+                <a href="editAnnotations.html">Edit Annotations</a>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <h2>Overview</h2>
+            <div class="overview-grid">
+                
+                <div class="overview-card">
+                    <h3>Upcoming Session</h3>
+                    <div class="number">05:00 PM</div>
+                    <p class="desc">Student: Ahmed Ali<br>Topic: Surah Al-Fatiha</p>
+                    <a href="liveClass.html" class="btn-small">Start Class</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Active Students</h3>
+                    <div class="number">12</div>
+                    <p class="desc">Currently enrolled in your courses.</p>
+                    <a href="studentProgress.html" class="btn-small">View List</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Saved Annotations</h3>
+                    <div class="number">24</div>
+                    <p class="desc">Notes available for live sessions.</p>
+                    <a href="editAnnotations.html" class="btn-small">Manage</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) e.preventDefault();
+        });
+        
+        const welcomeMsg = document.getElementById('welcomeHeader');
+        const currentHour = new Date().getHours();
+        if (currentHour < 12) welcomeMsg.innerText = "Good Morning";
+        else if (currentHour < 18) welcomeMsg.innerText = "Good Afternoon";
+        else welcomeMsg.innerText = "Good Evening";
+
+        document.getElementById('enterClassBtn').addEventListener('click', function() {
+            alert("Initializing Virtual Classroom tools... Please wait.");
+        });
+    </script>
+</body>
+</html>

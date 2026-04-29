@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="stdDashboard.html">Dashboard</a>
+            <div class="status">Profile Settings</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="profile-container">
+            
+            <div class="user-header">
+                <div class="avatar-circle">
+                    <span>UA</span>
+                </div>
+                <h2>User Account</h2>
+                <p>Student ID: 2025-001</p>
+            </div>
+
+            <hr class="divider">
+
+            <div class="settings-section">
+                <h3>Update Details</h3>
+                <div class="formCon">
+                    <form id="updateInfoForm">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" name="fullname" placeholder="Enter full name" value="Ahmed Ali" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="Enter email" value="ahmed@example.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <input type="text" name="phone" placeholder="+92 300 1234567">
+                        </div>
+                        <div class="actionBtn">
+                            <button type="submit">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="settings-section">
+                <h3>Security</h3>
+                <div class="formCon">
+                    <form id="passwordForm">
+                        <div class="input-group">
+                            <label>Current Password</label>
+                            <input type="password" name="oldPassword" placeholder="********" required>
+                        </div>
+                        <div class="input-group">
+                            <label>New Password</label>
+                            <input type="password" name="newPassword" placeholder="Enter new password" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Confirm Password</label>
+                            <input type="password" name="confirmPassword" placeholder="Confirm new password" required>
+                        </div>
+                        <div class="actionBtn">
+                            <button type="submit">Update Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                e.preventDefault();
+            }
+        });
+
+        // --- 2. Update Details Logic ---
+        const infoForm = document.getElementById('updateInfoForm');
+
+        infoForm.addEventListener('submit', function(event) {
+            // Stop page reload
+            event.preventDefault();
+            
+            // Simulate saving data to a server
+            alert("Profile details updated successfully!");
+        });
+
+        // --- 3. Password Validation Logic ---
+        const passForm = document.getElementById('passwordForm');
+
+        passForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop page reload
+
+            // Get the values from the input boxes
+            // We use 'name' attribute to find specific inputs inside the form
+            const newPass = passForm.querySelector('input[name="newPassword"]').value;
+            const confirmPass = passForm.querySelector('input[name="confirmPassword"]').value;
+
+            // Check if they match
+            if (newPass !== confirmPass) {
+                alert("Error: New Password and Confirm Password do not match!");
+            } else if (newPass.length < 6) {
+                // Optional: Check for short passwords
+                alert("Error: Password must be at least 6 characters long.");
+            } else {
+                alert("Success: Your password has been changed.");
+                // Clear the form fields
+                passForm.reset();
+            }
+        });
+    </script>
+</body>
+
+</html>

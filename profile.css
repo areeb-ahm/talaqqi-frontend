@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box; /* Ensures padding doesn't break layout width */
+}
+
+body {
+    background-color: #0D1117;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header (Identical Reuse) --- */
+.header {
+    background-color: #161B22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header h1 {
+    color: #10B981;
+}
+
+.header .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: #E5E7EB;
+}
+
+.header .nav a:hover {
+    color: #10B981;
+}
+
+.header .nav .status {
+    color: #3B82F6;
+    font-weight: 600;
+    border-left: 2px solid #30363D;
+    padding-left: 20px;
+}
+
+.header .signOut a {
+    text-decoration: none;
+    color: #E5E7EB;
+    background-color: #EF4444; /* Red for logout */
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+    border: 3px solid #30363D;
+}
+
+.header .signOut a:hover {
+    background-color: #F87171;
+}
+
+/* --- Main Layout --- */
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.profile-container {
+    background-color: #1F2937;
+    border: 10px solid #2A2F36;
+    border-radius: 10px;
+    width: 600px; /* Wider than login card to fit details */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- User Header --- */
+.user-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #161B22;
+    border: 5px solid #3B82F6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.avatar-circle span {
+    font-size: 32px;
+    font-weight: 700;
+    color: #E5E7EB;
+}
+
+.user-header h2 {
+    color: #10B981;
+    margin-bottom: 5px;
+}
+
+.user-header p {
+    color: #A1A1AA;
+}
+
+/* --- Divider --- */
+.divider {
+    border: 0;
+    height: 2px;
+    background-color: #2A2F36;
+    margin: 10px 0;
+}
+
+/* --- Settings Sections --- */
+.settings-section h3 {
+    color: #3B82F6;
+    margin-bottom: 15px;
+}
+
+.formCon {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    color: #E5E7EB;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Reusing input styles but adapting width to 100% of container */
+.formCon form input {
+    width: 100%; 
+    height: 40px;
+    background-color: #0D1117;
+    border: 2px solid #30363D;
+    color: #E5E7EB;
+    border-radius: 10px;
+    padding: 5px 15px; /* Added padding so text isn't stuck to left edge */
+    text-align: left;  /* Changed from center to left for profile forms */
+}
+
+.formCon form input:focus {
+    outline: none;
+    border-color: #3B82F6;
+}
+
+/* --- Buttons --- */
+.actionBtn {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 10px;
+}
+
+.actionBtn button {
+    background-color: #3B82F6;
+    color: #E5E7EB;
+    width: 150px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 3px solid #30363D;
+    cursor: pointer;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.actionBtn button:hover {
+    background-color: #60A5FA;
+    transform: translateY(-2px);
+}
+
+/* --- Footer --- */
+.footer {
+    color: #10B981;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #161B22;
+    height: 50px;
+    margin-top: auto;
+}

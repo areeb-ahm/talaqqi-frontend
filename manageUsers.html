@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="admDashboard.html">Dashboard</a>
+            <div class="status">User Management</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <div class="flex-row">
+                <h2>All Users</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search user...">
+                    <button id="searchBtn">Search</button>
+                </div>
+            </div>
+
+            <div class="list-wrapper">
+                <div class="card-item">
+                    <div class="avatar-small">S</div>
+                    <div class="details">
+                        <h3>Ahmed Ali</h3>
+                        <p>Role: <span style="color: #3B82F6;">Student</span> | ID: 2025-001</p>
+                    </div>
+                    <div class="actions">
+                        <a href="profile.html" class="btn-outline">Edit</a>
+                        <button class="btn-reject">Ban</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="avatar-small">T</div>
+                    <div class="details">
+                        <h3>Sheikh Abdullah</h3>
+                        <p>Role: <span style="color: #10B981;">Teacher</span> | ID: 2025-T01</p>
+                    </div>
+                    <div class="actions">
+                        <a href="profile.html" class="btn-outline">Edit</a>
+                        <button class="btn-reject">Ban</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                e.preventDefault();
+            }
+        });
+
+        // --- 2. Ban User Logic ---
+        const banButtons = document.querySelectorAll('.btn-reject');
+
+        banButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                // Confirm action
+                if (confirm("Are you sure you want to BAN this user?")) {
+                    // Find the card and remove it
+                    const card = btn.closest('.card-item');
+                    card.remove();
+                    alert("User has been banned and removed from the list.");
+                }
+            });
+        });
+
+        // --- 3. Simple Search Logic ---
+        const searchBtn = document.getElementById('searchBtn');
+        const searchInput = document.getElementById('searchInput');
+        
+        // Select all user cards
+        const allCards = document.querySelectorAll('.card-item');
+
+        searchBtn.addEventListener('click', function() {
+            // Get text from input and make it lowercase (so 'Ahmed' and 'ahmed' both work)
+            const searchText = searchInput.value.toLowerCase();
+
+            // Loop through all cards
+            allCards.forEach(function(card) {
+                // Get the Name inside the <h3> tag of this card
+                const userName = card.querySelector('h3').innerText.toLowerCase();
+
+                // Check if the name includes the search text
+                if (userName.includes(searchText)) {
+                    // Match found: Show it
+                    card.style.display = "flex";
+                } else {
+                    // No match: Hide it
+                    card.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

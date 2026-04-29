@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Annotations</title>
+    <link rel="stylesheet" href="teacher.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="tchDashboard.html">Dashboard</a>
+            <div class="status">Annotation Library</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <h2>Saved Annotations</h2>
+            <p style="color: #6B7280; margin-bottom: 20px;">Manage your saved notes and verse highlights.</p>
+
+            <div class="list-wrapper">
+                <div class="card-item">
+                    <div class="icon-box">📖</div>
+                    <div class="details">
+                        <h3>Surah Al-Fatiha - Verse 7</h3>
+                        <p>Note: "Emphasize the heavy letters here."</p>
+                    </div>
+                    <div class="actions">
+                        <a href="liveClass.html" class="btn-primary">Edit</a>
+                        <button class="btn-delete">Delete</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="icon-box">📖</div>
+                    <div class="details">
+                        <h3>Surah Al-Baqarah - Verse 255</h3>
+                        <p>Note: "Explain the rule of Madd Lazim."</p>
+                    </div>
+                    <div class="actions">
+                        <a href="liveClass.html" class="btn-primary">Edit</a>
+                        <button class="btn-delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        const signOutBtn = document.getElementById('signOutLink');
+        signOutBtn.addEventListener('click', function(event) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                event.preventDefault();
+            }
+        });
+
+        // --- 2. Delete Button Logic ---
+        
+        // Find all buttons with class 'btn-delete'
+        const deleteButtons = document.querySelectorAll('.btn-delete');
+
+        // Loop through each button
+        deleteButtons.forEach(function(btn) {
+            
+            btn.addEventListener('click', function() {
+                
+                // Ask for confirmation
+                const userConfirmed = confirm("Are you sure you want to DELETE this annotation?");
+
+                if (userConfirmed) {
+                    // If yes, we need to remove the "Card" this button belongs to.
+                    // .closest('.card-item') searches UP the HTML tree to find the 
+                    // container holding this button.
+                    const cardToRemove = btn.closest('.card-item');
+                    
+                    // This command removes the element from the HTML page
+                    cardToRemove.remove();
+                    
+                    alert("Annotation deleted successfully.");
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

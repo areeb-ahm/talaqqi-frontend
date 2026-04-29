@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Schedule</title>
+    <link rel="stylesheet" href="schedule.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="stdDashboard.html">Dashboard</a>
+            <div class="status">Weekly Schedule</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <h2>Upcoming Classes</h2>
+            
+            <div class="schedule-list">
+                <div class="class-card active">
+                    <div class="date-box">
+                        <span class="day">TODAY</span>
+                        <span class="time">05:00 PM</span>
+                    </div>
+                    <div class="details">
+                        <h3>Surah Al-Fatiha Recitation</h3>
+                        <p>Teacher: Sheikh Abdullah</p>
+                    </div>
+                    <div class="action">
+                        <a href="liveClass.html" class="join-btn" id="joinBtn">Join Now</a>
+                    </div>
+                </div>
+
+                <div class="class-card">
+                    <div class="date-box">
+                        <span class="day">TOMORROW</span>
+                        <span class="time">05:00 PM</span>
+                    </div>
+                    <div class="details">
+                        <h3>Tajweed Rules: Noon Sakinah</h3>
+                        <p>Teacher: Sheikh Abdullah</p>
+                    </div>
+                    <div class="action">
+                        <span class="upcoming-badge">Upcoming</span>
+                    </div>
+                </div>
+
+                <div class="class-card">
+                    <div class="date-box">
+                        <span class="day">WED</span>
+                        <span class="time">05:00 PM</span>
+                    </div>
+                    <div class="details">
+                        <h3>Surah Al-Baqarah (Verses 1-5)</h3>
+                        <p>Teacher: Sheikh Abdullah</p>
+                    </div>
+                    <div class="action">
+                        <span class="upcoming-badge">Upcoming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                e.preventDefault();
+            }
+        });
+
+        // --- 2. Join Class Logic ---
+        const joinButton = document.getElementById('joinBtn');
+
+        if (joinButton) {
+            joinButton.addEventListener('click', function(event) {
+                // Prevent the link from opening immediately so we can check logic
+                event.preventDefault();
+
+                // Get the current hour (0-23)
+                const currentHour = new Date().getHours();
+
+                // Logic: Let's pretend classes are only allowed between 9 AM (9) and 9 PM (21)
+                // Since this is a prototype, you can adjust these numbers.
+                
+                // For demonstration, let's assume class is always open:
+                const isClassOpen = true; 
+
+                if (isClassOpen) {
+                    alert("Connecting to live session... Please check your microphone.");
+                    // Go to the class page
+                    window.location.href = "liveClass.html";
+                } else {
+                    alert("Class has not started yet. Please wait until the scheduled time.");
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

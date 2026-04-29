@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="stdDashboard.html">Homepage</a>
+        </div>
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        
+        <div class="dashboard">
+            <h3 id="welcomeHeader">Student Dashboard</h3>
+            <div class="dashCon">
+                <a href="liveClass.html">Join Class</a>
+                <a href="schedule.html">View Schedule</a>
+                <a href="profile.html">Profile & Progress</a>
+                <a href="recitation.html">Upload / Record Recitation</a>
+                <a href="aiFeedback.html">AI Feedback Area</a>
+                <a href="recommendations.html">Recommendations</a>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <h2>Overview</h2>
+            <div class="overview-grid">
+                
+                <div class="overview-card">
+                    <h3>Next Class</h3>
+                    <div class="number">Today</div>
+                    <p class="desc">Surah Al-Fatiha Recitation<br>5:00 PM</p>
+                    <a href="liveClass.html" class="btn-small">Join Now</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Average Accuracy</h3>
+                    <div class="number" style="color: #10B981;">87%</div>
+                    <p class="desc">Based on last 5 recitations</p>
+                    <a href="aiFeedback.html" class="btn-small">View History</a>
+                </div>
+
+                <div class="overview-card">
+                    <h3>Focus Area</h3>
+                    <div class="number" style="font-size: 24px;">Ghunnah</div>
+                    <p class="desc">AI detected inconsistency in nasal sounds.</p>
+                    <a href="recommendations.html" class="btn-small">Practice</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) e.preventDefault();
+        });
+
+        const welcomeMsg = document.getElementById('welcomeHeader');
+        const currentHour = new Date().getHours();
+        if (currentHour < 12) welcomeMsg.innerText = "Good Morning";
+        else if (currentHour < 18) welcomeMsg.innerText = "Good Afternoon";
+        else welcomeMsg.innerText = "Good Evening";
+    </script>
+</body>
+</html>

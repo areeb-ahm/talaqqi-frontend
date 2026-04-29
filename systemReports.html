@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Reports</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="admDashboard.html">Dashboard</a>
+            <div class="status">Analytics & Reports</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container wide">
+            <div class="flex-row">
+                <h2>Platform Overview</h2>
+                <button id="refreshBtn" class="btn-outline" style="cursor: pointer;">Refresh Data</button>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <div class="number" id="userCount">1,250</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Classes</h3>
+                    <div class="number green" id="activeClasses">45</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Approvals</h3>
+                    <div class="number red" id="pendingApprovals">12</div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 30px;">System Health</h2>
+            <div class="list-wrapper">
+                <div class="card-item">
+                    <div class="details">
+                        <h3>Server Status</h3>
+                        <p>Region: Asia-South1</p>
+                    </div>
+                    <div class="actions">
+                        <span class="badge green">Operational</span>
+                    </div>
+                </div>
+                
+                <div class="card-item">
+                    <div class="details">
+                        <h3>AI Model Latency</h3>
+                        <p>Average response time</p>
+                    </div>
+                    <div class="actions">
+                        <span class="badge yellow" id="latencyBadge">120ms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                e.preventDefault();
+            }
+        });
+
+        // --- 2. Live Data Simulation ---
+        const refreshBtn = document.getElementById('refreshBtn');
+        
+        // Select the elements we want to change
+        const userDisplay = document.getElementById('userCount');
+        const classDisplay = document.getElementById('activeClasses');
+        const pendingDisplay = document.getElementById('pendingApprovals');
+        const latencyDisplay = document.getElementById('latencyBadge');
+
+        refreshBtn.addEventListener('click', function() {
+            // Show a temporary "Loading..." state
+            refreshBtn.innerText = "Refreshing...";
+            
+            // Wait 1 second (1000 milliseconds) to simulate fetching from server
+            setTimeout(function() {
+                
+                // 1. Randomize Users (between 1250 and 1300)
+                // Math.random() gives a number between 0 and 1
+                const randomUsers = 1250 + Math.floor(Math.random() * 50);
+                userDisplay.innerText = randomUsers.toLocaleString(); // Adds commas (1,250)
+
+                // 2. Randomize Classes (between 40 and 60)
+                const randomClasses = 40 + Math.floor(Math.random() * 20);
+                classDisplay.innerText = randomClasses;
+
+                // 3. Randomize Pending (between 5 and 15)
+                const randomPending = 5 + Math.floor(Math.random() * 10);
+                pendingDisplay.innerText = randomPending;
+
+                // 4. Randomize Latency (between 90ms and 150ms)
+                const randomLatency = 90 + Math.floor(Math.random() * 60);
+                latencyDisplay.innerText = randomLatency + "ms";
+
+                // Reset Button Text
+                refreshBtn.innerText = "Refresh Data";
+                
+                alert("Dashboard data updated successfully.");
+
+            }, 1000); // 1000ms delay
+        });
+    </script>
+</body>
+
+</html>

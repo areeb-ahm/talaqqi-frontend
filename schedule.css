@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0D1117;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header Reused --- */
+.header {
+    background-color: #161B22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+    position: sticky;
+    top: 0;
+}
+
+.header h1 {
+    color: #10B981;
+}
+
+.header .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: #E5E7EB;
+}
+
+.header .nav a:hover {
+    color: #10B981;
+}
+
+.header .nav .status {
+    color: #3B82F6;
+    font-weight: 600;
+    border-left: 2px solid #30363D;
+    padding-left: 20px;
+}
+
+.header .signOut a {
+    text-decoration: none;
+    color: #E5E7EB;
+    background-color: #EF4444;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+    border: 3px solid #30363D;
+}
+
+.header .signOut a:hover {
+    background-color: #F87171;
+}
+
+/* --- Main Content Area --- */
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.container {
+    background-color: #1F2937;
+    border: 10px solid #2A2F36;
+    border-radius: 10px;
+    width: 800px; /* Wide container for lists */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container h2 {
+    color: #3B82F6;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2A2F36;
+    padding-bottom: 10px;
+}
+
+/* --- List Items (Cards) --- */
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.class-card {
+    background-color: #161B22;
+    border: 2px solid #30363D;
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.class-card:hover {
+    border-color: #3B82F6;
+    transform: translateX(5px);
+}
+
+.class-card.active {
+    border-color: #10B981;
+    background-color: rgba(16, 185, 129, 0.05);
+}
+
+/* --- Date/Time Box --- */
+.date-box {
+    background-color: #0D1117;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+}
+
+.date-box .day {
+    color: #3B82F6;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.date-box .time {
+    color: #E5E7EB;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* --- Score Box (For Feedback Page) --- */
+.score-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #fff;
+    border: 4px solid #30363D;
+}
+
+.score-box.high { border-color: #10B981; color: #10B981; }
+.score-box.medium { border-color: #F59E0B; color: #F59E0B; }
+.score-box.low { border-color: #EF4444; color: #EF4444; }
+
+/* --- Icon Box (For Recommendations) --- */
+.icon-box {
+    font-size: 24px;
+    width: 50px;
+    text-align: center;
+}
+
+/* --- Details Section --- */
+.details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.details h3 {
+    color: #E5E7EB;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.details p {
+    color: #A1A1AA;
+    font-size: 14px;
+}
+
+/* --- Action Buttons --- */
+.join-btn, .view-btn, .practice-btn {
+    text-decoration: none;
+    color: #E5E7EB;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.join-btn {
+    background-color: #10B981;
+    border-color: #059669;
+}
+
+.join-btn:hover { background-color: #34D399; }
+
+.view-btn {
+    background-color: #3B82F6;
+    border-color: #2563EB;
+}
+
+.view-btn:hover { background-color: #60A5FA; }
+
+.practice-btn {
+    background-color: #1F2937;
+    border: 2px solid #3B82F6;
+    color: #3B82F6;
+}
+
+.practice-btn:hover {
+    background-color: #3B82F6;
+    color: white;
+}
+
+.upcoming-badge {
+    color: #6B7280;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* --- Footer --- */
+.footer {
+    color: #10B981;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #161B22;
+    height: 50px;
+    margin-top: auto;
+}

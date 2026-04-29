@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Progress</title>
+    <link rel="stylesheet" href="teacher.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="tchDashboard.html">Dashboard</a>
+            <div class="status">Student Analytics</div>
+        </div>
+
+        <div class="signOut">
+            <a href="homePage.html" id="signOutLink">Sign Out</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <h2>Enrolled Students</h2>
+            
+            <div class="list-wrapper">
+                <div class="card-item">
+                    <div class="avatar">AA</div>
+                    <div class="details">
+                        <h3>Ahmed Ali</h3>
+                        <p>Last Session: Surah Al-Fatiha (Score: 87%)</p>
+                    </div>
+                    <div class="stats">
+                        <span class="badge green">Active</span>
+                        <a href="#" class="btn-outline report-btn">View Report</a>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="avatar">FN</div>
+                    <div class="details">
+                        <h3>Fatima Noor</h3>
+                        <p>Last Session: Tajweed Rules (Score: 92%)</p>
+                    </div>
+                    <div class="stats">
+                        <span class="badge green">Active</span>
+                        <a href="#" class="btn-outline report-btn">View Report</a>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="avatar">ZK</div>
+                    <div class="details">
+                        <h3>Zaid Khan</h3>
+                        <p>Last Session: Surah An-Nas (Score: 75%)</p>
+                    </div>
+                    <div class="stats">
+                        <span class="badge yellow">Needs Attention</span>
+                        <a href="#" class="btn-outline report-btn">View Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        // --- 1. Sign Out Confirmation ---
+        document.getElementById('signOutLink').addEventListener('click', function(e) {
+            if (!confirm("Are you sure you want to sign out?")) {
+                e.preventDefault();
+            }
+        });
+
+        // --- 2. View Report Logic ---
+        const reportButtons = document.querySelectorAll('.report-btn');
+
+        reportButtons.forEach(function(btn) {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault(); // Stop link jump
+
+                // Get Student Name
+                const card = btn.closest('.card-item');
+                const studentName = card.querySelector('h3').innerText;
+                
+                // Check status (Green or Yellow?)
+                const badge = card.querySelector('.badge');
+                const isUrgent = badge.classList.contains('yellow');
+
+                // Simulate loading
+                alert("Fetching detailed report for: " + studentName + "...");
+
+                if (isUrgent) {
+                    alert("Warning: This student's performance has dropped below 80%. Consider scheduling a review session.");
+                } else {
+                    alert("Report loaded successfully. Student is performing well.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="authentication.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Talaqqi</h1>
+        <div class="nav">
+            <a href="homePage.html">Homepage</a>
+            <a href="authentication.html">Authentication</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="card">
+            <h2>Register</h2>
+            
+            <div class="formCon">
+                <form action="dashboard.html" method="POST" id="regForm">
+                    <input type="text" name="username" placeholder="Enter username" required>
+                    <input type="email" name="email" placeholder="Enter Email" required>
+                    <input type="password" name="password" placeholder="Enter password" required>
+                    <input type="password" name="CfrmPassword" placeholder="Confirm password" required>
+                </form>
+            </div>
+            
+            <div class="loginBtn">
+                <button type="submit" form="regForm">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+       &copy; 2025 Talaqqi. All rights reserved. 
+    </div>
+
+    <script>
+        const regForm = document.getElementById('regForm');
+
+        regForm.addEventListener('submit', function(event) {
+            // 1. Stop the page from reloading
+            event.preventDefault();
+
+            // 2. Get the values from the password boxes
+            const password = regForm.querySelector('input[name="password"]').value;
+            const confirmPass = regForm.querySelector('input[name="CfrmPassword"]').value;
+            const username = regForm.querySelector('input[name="username"]').value;
+
+            // 3. Validation Logic
+            if (password !== confirmPass) {
+                // If they don't match, stop and warn the user
+                alert("Error: Passwords do not match. Please try again.");
+                return; // 'return' stops the function here
+            }
+
+            if (password.length < 6) {
+                alert("Error: Password should be at least 6 characters long.");
+                return;
+            }
+
+            // 4. Success! Simulate account creation
+            alert("Account created successfully for " + username + "! Redirecting to Dashboard...");
+            
+            // Redirect to Student Dashboard
+            window.location.href = "stdDashboard.html";
+        });
+    </script>
+</body>
+
+</html>
