@@ -57,7 +57,7 @@ Since this is a vanilla frontend project, no complex build tools, package manage
 ## Contact & Support
 
 For any questions, feedback, or support, we encourage you to reach out to our team:
-- **Email:** areebahmed.one@gmail.com(mailto:areebahmed.one@gmail.com)
+- **Email:** areebahmed.one@gmail.com
 - **Phone:** +92 310 6127076
 
 ---
